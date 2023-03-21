@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="stock_warning_email_template" model="mail.template">
+            <field name="name">Stock Warning Report</field>
+            <field name="model_id" ref="stock_warning.model_stock_warning"/>
+            <field name="subject">"Stock Report"</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p>
+                        Dear,
+                        <t t-out="user.name"/>
+                        <br/>
+                        <br/>
+                        Stock Report on
+                        <t t-out="object.today"/>
+                        is attached below
+                        <br/>
+                    </p>
+                    Regards,
+                    <br/>
+                    <t t-out="user.name"/>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>
